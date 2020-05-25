@@ -25,7 +25,6 @@ class HomeViewController: UIViewController {
         self.listTableView.register(DesignTableViewCell.self, forCellReuseIdentifier: "CellDesign")
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.addButton.layer.cornerRadius = self.addButton.frame.height / 2
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func AddTaskButton(_ sender: UIButton) {
@@ -39,7 +38,6 @@ class HomeViewController: UIViewController {
                 let indexPath = IndexPath(row: self.taskToDo.count - 1, section: 0)
                 self.listTableView.beginUpdates()
                 self.listTableView.insertRows(at: [indexPath], with: .fade)
-                //self.listTableView.insertSections(IndexSet(integer: 0), with: .left)
                 self.listTableView.endUpdates()
                 addTaskTextField.text = ""
             }
@@ -51,7 +49,7 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1//self.taskToDo.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -72,7 +70,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellDesign", for: indexPath) as! DesignTableViewCell
         cell.textLabel?.text = self.taskToDo[indexPath.section]
         
-        //cell.textLabel?.text = self.taskToDo[indexPath.row]
         return cell
     }
     
@@ -86,8 +83,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-//            taskToDo.remove(at: indexPath.section)
-//            tableView.deleteSections(IndexSet(arrayLiteral: indexPath.section), with: .fade)
             taskToDo.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }

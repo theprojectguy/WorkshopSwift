@@ -12,7 +12,6 @@ class DesignTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -24,10 +23,8 @@ class DesignTableViewCell: UITableViewCell {
         layer.shadowOffset = CGSize(width: 0, height: 0)
         layer.shadowColor = UIColor.black.cgColor
 
-        // add corner radius on `contentView`
-        contentView.backgroundColor = UIColor(named: "Color-1")
+        contentView.backgroundColor = UIColor(named: "Background")
         contentView.clipsToBounds = false
-        //contentView.layer.frame = frame(forAlignmentRect: CGRect(x: 0, y: 0, width: contentView.layer.frame.width - 10, height: contentView.layer.frame.height - 10))
         contentView.layer.cornerRadius = self.contentView.frame.height / 2
     }
     
@@ -43,8 +40,6 @@ class DesignTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }
